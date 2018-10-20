@@ -3,16 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to SIGAX DOCS's documentation!
+Bienvenido a la documentación de SIGAX
 ======================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contenido:
 
 
 
-Indices and tables
+Índices y Tablas
 ==================
 
 * :ref:`genindex`
