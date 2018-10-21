@@ -7,10 +7,11 @@ Bienvenido a la documentación de SIGAX
 ======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contenido:
+   :maxdepth: 4
+   :caption: Tabla de Contenidos
 
-
+   intro
+   comands
 
 Índices y Tablas
 ==================
