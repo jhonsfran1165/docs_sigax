@@ -27,9 +27,13 @@ Condiciones previas
 Iniciar Edición
 =================
 
-1. Dentro del modulo listar grupos, en el modulo central se encuentra todos los grupos de usuarios creados con controles en la parte derecha de cada grupo, dar click donde está el botón **COLOR** con el signo **SIGNO** para emprezar la edición del grupo y sus permisos.
+1. Dentro del modulo listar grupos, en el modulo central se encuentra todos los grupos de usuarios creados con controles en la parte derecha de cada grupo, dar click donde está el botón **azul** con el icono **lapiz** para emprezar la edición del grupo y sus permisos.
 
-.. image:: images/plus.png
+.. image:: images/listado.png
+    :align: center
+
+.. image:: images/boton_editar.png
+    :align: center
 
 2. Se abre un modal con el formulario para la edición del grupo, los siguientes campos aparecen diligenciados con los datos del grupo seleccionado "No es obligatorio modificar todos los campos" :
 
@@ -47,9 +51,10 @@ Iniciar Edición
 		
 		* **Deseleccionar todo:** Pasa todos los permisos del recuadro derecho al recuadro izquierdo, dejando el recuadro derecho vacío.
 
-.. image:: images/plus.png
+.. image:: images/modal_editar.png
+    :align: center
 		
-3. Teniendo diligenciado el campo "nombre del grupo" y seleccionado como minimo 1 permiso en el segundo campo "permisos del grupo", el sistema permitirá actualizar el grupo, con el botón verde "Editar Grupo".
+3. Teniendo diligenciado el campo "nombre del grupo" y seleccionado como minimo 1 permiso en el segundo campo "permisos del grupo", el sistema permitirá actualizar el grupo, con el botón azul "Editar Grupo".
 
 	* La petición POST se envia con los siguientes datos a la direccion **/usuarios/editar_group_tenants/** :
 	
@@ -57,6 +62,10 @@ Iniciar Edición
 		* "permissions:" con los id de los permisos que se asigaran en ese grupo.
 		
 	* Se envía una petición GET a cuenta/login?next=/usuarios/crear_group_tenants/
+
+.. image:: images/guardar_editar.png
+    :align: center
+
 
 
 

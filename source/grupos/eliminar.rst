@@ -26,13 +26,18 @@ Condiciones previas
 Iniciar Eliminación
 =================
 
-1. Dentro del modulo listar grupos, en el modulo central se encuentra todos los grupos de usuarios creados con controles en la parte derecha de cada grupo, dar click donde está el botón **COLOR** con el signo **SIGNO** para emprezar la eliminación del grupo y sus permisos.
+1. Dentro del modulo listar grupos, en el modulo central se encuentra todos los grupos de usuarios creados con controles en la parte derecha de cada grupo, dar click donde está el botón **rojo** con el icono **tarro basura** para emprezar la eliminación del grupo y sus permisos.
 
-.. image:: images/plus.png
+.. image:: images/listado.png
+    :align: center
+	
+.. image:: images/boton_eliminar.png
+    :align: center
 
 2. Se abre una verificación para confirmar si se está seguro de realizar la eliminación.
 
-.. image:: images/plus.png
+.. image:: images/confirmacion_eliminar.png
+    :align: center
 		
 3. Al aceptar, se procede a la eliminación del grupo:
 

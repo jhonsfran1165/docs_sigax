@@ -30,6 +30,7 @@ Iniciar Creación
 1. Dentro del modulo listar grupos, en la parte superior derecha se encuentra los controles, donde está el botón verde para emprezar la creación del grupo y sus permisos.
 
 .. image:: images/plus.png
+    :align: center
 
 2. Se abre un modal con el formulario para la creación del grupo:
 
@@ -47,10 +48,11 @@ Iniciar Creación
 		
 		* **Deseleccionar todo:** Pasa todos los permisos del recuadro derecho al recuadro izquierdo, dejando el recuadro derecho vacío.
 
-.. image:: images/plus.png
+.. image:: images/modal_crear.png
+    :align: center
 		
 3. Teniendo diligenciado el campo "nombre del grupo" y seleccionado como minimo 1 permiso en el segundo campo "permisos del grupo", el sistema permitirá guardar el grupo, con el botón verde "Crear Grupo".
-
+	
 	* La petición POST se envia con los siguientes datos a la direccion **/usuarios/crear_group_tenants/** :
 	
 		* "name:" Nombre del grupo.
@@ -58,5 +60,6 @@ Iniciar Creación
 		
 	* Se envía una petición GET a cuenta/login?next=/usuarios/crear_group_tenants/
 
-
+.. image:: images/boton_crear.png
+    :align: center
 
