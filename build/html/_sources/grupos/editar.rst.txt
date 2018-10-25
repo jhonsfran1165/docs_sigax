@@ -1,37 +1,37 @@
 .. Este documento posee todos los commandos importantes que se deben utilizar à la hora de documenta
 .. Por favor mirarlos y añadir los que utilicen y sean importantes y que no esten aquí.
 
-.. El sistema permite la creación de grupos de usuarios, esto hará que los usuarios con dichos grupos tengan permisos a distintas funciones o modulos dentro de la aplicación.
+.. Título
 
-Creación de grupos
+Edición de grupos
 ======================================
 
-El sistema permite la creación de grupos de usuarios, esto permitirá agregar grupos de usuarios con permisos a distintas funciones o modulos dentro de la aplicación.
+El sistema permite la Edición de grupos de usuarios, esto actualizará los grupos de usuarios creados anteriormente.
 
 =================
 Condiciones previas
 =================
 
-* Estar logeado como usuario root en el sistema (para la creación del primer grupo).
-* Tener permisos ya establecidos en la base de datos.
 * Para usuarios que no son root, debe estar logeado con un grupo que tenga ya permisos para entrar en el modulo de grupos.
+* Tener permisos ya establecidos en la base de datos.
+* Tener grupos de usuarios ya establecidos en la base de datos.
 * Ingresar al modulo de listado de grupos **/usuarios/listar_grupos/**
 
-	* La petición GET retorna una pagina con todos los datos de permisos ya establecidos en la base de datos:
+	* La petición GET retorna una pagina con todos los datos de permisos y grupos de usuarios ya establecidos en la base de datos:
 	 Usando las clases dentro de "viwes.py" > "forms.py"
 ::
 
    ListarGroupView > CreateGroup
 
 =================
-Iniciar Creación
+Iniciar Edición
 =================
 
-1. Dentro del modulo listar grupos, en la parte superior derecha se encuentra los controles, donde está el botón verde para emprezar la creación del grupo y sus permisos.
+1. Dentro del modulo listar grupos, en el modulo central se encuentra todos los grupos de usuarios creados con controles en la parte derecha de cada grupo, dar click donde está el botón **COLOR** con el signo **SIGNO** para emprezar la edición del grupo y sus permisos.
 
 .. image:: images/plus.png
 
-2. Se abre un modal con el formulario para la creación del grupo:
+2. Se abre un modal con el formulario para la edición del grupo, los siguientes campos aparecen diligenciados con los datos del grupo seleccionado "No es obligatorio modificar todos los campos" :
 
 	* El primer campo, es el nombre que se le pondrá al grupo.
 	
@@ -49,9 +49,9 @@ Iniciar Creación
 
 .. image:: images/plus.png
 		
-3. Teniendo diligenciado el campo "nombre del grupo" y seleccionado como minimo 1 permiso en el segundo campo "permisos del grupo", el sistema permitirá guardar el grupo, con el botón verde "Crear Grupo".
+3. Teniendo diligenciado el campo "nombre del grupo" y seleccionado como minimo 1 permiso en el segundo campo "permisos del grupo", el sistema permitirá actualizar el grupo, con el botón verde "Editar Grupo".
 
-	* La petición POST se envia con los siguientes datos a la direccion **/usuarios/crear_group_tenants/** :
+	* La petición POST se envia con los siguientes datos a la direccion **/usuarios/editar_group_tenants/** :
 	
 		* "name:" Nombre del grupo.
 		* "permissions:" con los id de los permisos que se asigaran en ese grupo.
