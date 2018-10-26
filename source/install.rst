@@ -56,7 +56,7 @@ Como primer paso para instalar SIGAX, es necesario ejecutar el siguiente command
    python
    :linenos:
 
-   mkvirtualenv env_sigax
+   virtualenv env_sigax
    source env_sigax/Scripts/activate
 
 
@@ -84,7 +84,7 @@ SIGAX trabaja con aplicaciones de terceros, en el sentido de que algunas funcion
    sh
    :linenos:
 
-	pip install -r ../requirements/requirements_development.txt
+	pip install -r requirements/requirements_development.txt
 
 
 Una vez descagadas e instaladas las dependencias deberemos configurar la base de datos.
