@@ -13,6 +13,7 @@ Bienvenido a la documentación de SIGAX
    intro
    install
    comands
+   grupos/crear
 
 Índices y Tablas
 ==================
