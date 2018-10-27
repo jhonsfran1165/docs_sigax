@@ -12,8 +12,9 @@ Bienvenido a la documentación de SIGAX
 
    intro
    install
-   comands
+   login/login
    grupos/crear
+   comands
 
 Índices y Tablas
 ==================
