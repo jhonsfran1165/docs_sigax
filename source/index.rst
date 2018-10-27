@@ -11,7 +11,9 @@ Bienvenido a la documentación de SIGAX
    :caption: Tabla de Contenidos
 
    intro
+   install
    comands
+   grupos/crear
 
 Índices y Tablas
 ==================

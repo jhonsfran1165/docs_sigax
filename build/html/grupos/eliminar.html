@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Eliminar de grupos &mdash; documentación de SIGAX DOCS - 0.0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIGAX DOCS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tabla de Contenidos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Guía de Instalación de SIGAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comands.html">Commandos Básicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crear.html">Creación de grupos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIGAX DOCS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Eliminar de grupos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/grupos/eliminar.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="eliminar-de-grupos">
+<h1>Eliminar de grupos<a class="headerlink" href="#eliminar-de-grupos" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>El sistema permite la eliminación de grupos de usuarios, si y solo si, no esta asignado ya a usuarios del sistema, esto eliminará un grupo de usuario creado anteriormente.</p>
+<div class="section" id="condiciones-previas">
+<h2>Condiciones previas<a class="headerlink" href="#condiciones-previas" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul>
+<li><p class="first">Para usuarios que no son root, debe estar logeado con un grupo que tenga ya permisos para entrar en el modulo de grupos.</p>
+</li>
+<li><p class="first">Tener grupos de usuarios ya establecidos en la base de datos.</p>
+</li>
+<li><p class="first">Ingresar al modulo de listado de grupos <strong>/usuarios/listar_grupos/</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>La petición GET retorna una pagina con todos los datos de permisos y grupos de usuarios ya establecidos en la base de datos:</li>
+</ul>
+<blockquote>
+<div><p>Usando las clases dentro de «viwes.py» &gt; «forms.py»</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListarGroupView</span> <span class="o">&gt;</span> <span class="n">CreateGroup</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iniciar-eliminacion">
+<h2>Iniciar Eliminación<a class="headerlink" href="#iniciar-eliminacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<ol class="arabic simple">
+<li>Dentro del modulo listar grupos, en el modulo central se encuentra todos los grupos de usuarios creados con controles en la parte derecha de cada grupo, dar click donde está el botón <strong>rojo</strong> con el icono <strong>tarro basura</strong> para emprezar la eliminación del grupo y sus permisos.</li>
+</ol>
+<img alt="../_images/listado.png" class="align-center" src="../_images/listado.png" />
+<img alt="../_images/boton_eliminar.png" class="align-center" src="../_images/boton_eliminar.png" />
+<ol class="arabic simple" start="2">
+<li>Se abre una verificación para confirmar si se está seguro de realizar la eliminación.</li>
+</ol>
+<img alt="../_images/confirmacion_eliminar.png" class="align-center" src="../_images/confirmacion_eliminar.png" />
+<ol class="arabic" start="3">
+<li><p class="first">Al aceptar, se procede a la eliminación del grupo:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">La petición POST se envia con los siguientes datos a la direccion <strong>/usuarios/eliminar_group_tenants/</strong> :</p>
+<blockquote>
+<div><ul class="simple">
+<li>«grupo:» id del grupo a eliminar.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Se envía una petición GET a cuenta/login?next=/usuarios/crear_group_tenants/</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, amxsoft
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

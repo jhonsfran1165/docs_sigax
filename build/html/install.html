@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Guía de Instalación de SIGAX &mdash; documentación de SIGAX DOCS - 0.0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Commandos Básicos" href="comands.html" />
+    <link rel="prev" title="Introducción" href="intro.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SIGAX DOCS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tabla de Contenidos</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introducción</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guía de Instalación de SIGAX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clonar-el-proyecto">Clonar el proyecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalar-ambiente">Instalar Ambiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalar-dependencias">Instalar Dependencias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configurar-base-de-datos-migraciones">Configurar Base de Datos &amp; Migraciones</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comands.html">Commandos Básicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grupos/crear.html">Creación de grupos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SIGAX DOCS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Guía de Instalación de SIGAX</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="guia-de-instalacion-de-sigax">
+<h1>Guía de Instalación de SIGAX<a class="headerlink" href="#guia-de-instalacion-de-sigax" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La Instalación de SIGAX implica ejecutar la aplicación en un ambiente definido en los requerimets. Además de esto es necesario preparar la base de datos
+para que sea posible utilizar una configuracion multi esquema.</p>
+<p>Todas estas tareas se programaron y sólo es necesario ejecutar una serie de archivos. Sin embargo se explicará cada archivo para que se tenga una
+idea general de cómo funciona. Si desea profundizar debe ir al código.</p>
+<p>SIGAX corre bajo python 3.6 por favor instale esta versión en especifíco para ejecutar el proyecto.</p>
+<div class="section" id="clonar-el-proyecto">
+<h2>Clonar el proyecto<a class="headerlink" href="#clonar-el-proyecto" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Si tiene acceso al repositorio de SIGAX sólo debe clonar el repo a su computador. Si aún no tiene acceso debe solicitarlo. Ir a SIGAX en GitHub <a class="reference external" href="https://github.com/jhonsfran1165/sigax">a link</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Recuerda que este repositorio es privado.</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jhonsfran1165</span><span class="o">/</span><span class="n">sigax</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="instalar-ambiente">
+<h2>Instalar Ambiente<a class="headerlink" href="#instalar-ambiente" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Inicialmente se utiliza un ambiente en virtualenv pero próximamente se manejará vía docker.</p>
+</div>
+<p>Virtualenv es una aplicación que permite encapsular parámetros globales en otras aplicaciones de forma local. Esto permite manejar las mismas versiones de
+los requerimientos que son necesarios para la ejecución del programa. Centralizar los parámetros evita el conflicto de versiones cuando se desarrolla
+en grupos.</p>
+<p>Como primer paso para instalar SIGAX, es necesario ejecutar el siguiente commando desde la consola.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">virtualenv</span> <span class="n">env_sigax</span>
+<span class="n">source</span> <span class="n">env_sigax</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p>Para ejecutar este commando debes tener instalado pip para python 3.6</p>
+<p class="last">Si creas el virtualenv dentro del proyecto de SIGAX recuerda incluir el folder del ambiente en el .gitignore. Aconsejamos que lo crees afuera del repositorio.</p>
+</div>
+<p>Una vez creado y activado el ambiente se puede ingresar à la carpeta que se descargó al clonar el repositorio.</p>
+</div>
+<div class="section" id="instalar-dependencias">
+<h2>Instalar Dependencias<a class="headerlink" href="#instalar-dependencias" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>SIGAX trabaja con aplicaciones de terceros, en el sentido de que algunas funcionalidades se implementaron con ayuda de bibliotecas. Se deben instalar las versiones adecuadas para que el proyecto no tenga ningún error de dependencias.</p>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     pip install -r requirements/requirements_development.txt
+</pre></div>
+</td></tr></table></div>
+<p>Una vez descagadas e instaladas las dependencias deberemos configurar la base de datos.</p>
+</div>
+<div class="section" id="configurar-base-de-datos-migraciones">
+<h2>Configurar Base de Datos &amp; Migraciones<a class="headerlink" href="#configurar-base-de-datos-migraciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se debe crear una base de datos de forma local preferiblemente de nombre sigax. Se debe realizar una copia del local_settings.py.py ubicado en la carpeta sigax/sigax/</p>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Se debe agregar este archivo creado al .gitignore ya que representa la configuración usada para el proyecto en tu entorno local.</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#DATABASES = {</span>
+<span class="c1">#    &#39;default&#39;: {</span>
+<span class="c1">#        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,</span>
+<span class="c1">#        &#39;NAME&#39;: os.path.join(BASE_DIR, &#39;db.sqlite3&#39;),</span>
+<span class="c1">#    }</span>
+<span class="c1">#}</span>
+
+<span class="c1">### Tenant schemas</span>
+
+<span class="hll"><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">#&#39;ENGINE&#39;: &#39;tenant_schemas.postgresql_backend&#39;,</span>
+</span><span class="hll">        <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django_tenants.postgresql_backend&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;sigax&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s1">&#39;USER&#39;</span><span class="p">:</span> <span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s1">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s1">&#39;prueba123&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s1">&#39;HOST&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s1">&#39;PORT&#39;</span><span class="p">:</span> <span class="s1">&#39;5432&#39;</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="n">DATABASE_ROUTERS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;django_tenants.routers.TenantSyncRouter&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Password validation</span>
+</pre></div>
+</td></tr></table></div>
+<p>La parte subrayada de este archivo representa la configuración de la base de datos. Eres libre de configurar esta parte de acuerdo a tu conveniencia.</p>
+<p>Cuando hayas validado que tu archivo de configuración es correcto. Por favor ejecuta el siguiente commando en la raiz del proyecto:</p>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     sh install.sh
+</pre></div>
+</td></tr></table></div>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Si tienes algún error al memento de ejecutar el script, debes solucionarlo, borrar la base de datos creada y volverla a crear. Luego de esto se ejecutar el Script nuevamente.</p>
+</div>
+<p>Ahora nuestro proyecto está casi listo, antes de iniciarlo debemos ejecutar las migraciones de las aplicaciones por medio de un bash automatizado.</p>
+<p>Si no tuviste problemas puedes ingresar à la dirección localhost:port donde port es el puerto configurado. Si tu consola se cierra puedes iniciar de nuevo el proyecto con:</p>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     python manage.py runserver localhost:port
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="comands.html" class="btn btn-neutral float-right" title="Commandos Básicos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Introducción" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, amxsoft
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
