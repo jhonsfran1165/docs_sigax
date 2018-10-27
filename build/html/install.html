@@ -85,7 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#clonar-el-proyecto">Clonar el proyecto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#instalar-ambiente">Instalar Ambiente</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#instalar-dependencias">Instalar Dependencias</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configurar-base-de-datos">Configurar Base de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configurar-base-de-datos-migraciones">Configurar Base de Datos &amp; Migraciones</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="comands.html">Commandos Básicos</a></li>
@@ -182,7 +182,7 @@ los requerimientos que son necesarios para la ejecución del programa. Centraliz
 en grupos.</p>
 <p>Como primer paso para instalar SIGAX, es necesario ejecutar el siguiente commando desde la consola.</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">mkvirtualenv</span> <span class="n">env_sigax</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">virtualenv</span> <span class="n">env_sigax</span>
 <span class="n">source</span> <span class="n">env_sigax</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">activate</span>
 </pre></div>
 </td></tr></table></div>
@@ -196,667 +196,44 @@ en grupos.</p>
 <div class="section" id="instalar-dependencias">
 <h2>Instalar Dependencias<a class="headerlink" href="#instalar-dependencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>SIGAX trabaja con aplicaciones de terceros, en el sentido de que algunas funcionalidades se implementaron con ayuda de bibliotecas. Se deben instalar las versiones adecuadas para que el proyecto no tenga ningún error de dependencias.</p>
-<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     pip install -r ../requirements/requirements_development.txt
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     pip install -r requirements/requirements_development.txt
 </pre></div>
 </td></tr></table></div>
 <p>Una vez descagadas e instaladas las dependencias deberemos configurar la base de datos.</p>
 </div>
-<div class="section" id="configurar-base-de-datos">
-<h2>Configurar Base de Datos<a class="headerlink" href="#configurar-base-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="configurar-base-de-datos-migraciones">
+<h2>Configurar Base de Datos &amp; Migraciones<a class="headerlink" href="#configurar-base-de-datos-migraciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se debe crear una base de datos de forma local preferiblemente de nombre sigax. Se debe realizar una copia del local_settings.py.py ubicado en la carpeta sigax/sigax/</p>
 <div class="admonition warning">
 <p class="first admonition-title">Advertencia</p>
-<p class="last">Se debe agregar este archivo creado al .gitignore ya representa la configuración usada para el proyecto en tu entorno local.</p>
+<p class="last">Se debe agregar este archivo creado al .gitignore ya que representa la configuración usada para el proyecto en tu entorno local.</p>
 </div>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Django settings for sigax project.</span>
-
-<span class="sd">Generated by &#39;django-admin startproject&#39; using Django 1.11.</span>
-
-<span class="sd">For more information on this file, see</span>
-<span class="sd">https://docs.djangoproject.com/en/1.11/topics/settings/</span>
-
-<span class="sd">For the full list of settings and their values, see</span>
-<span class="sd">https://docs.djangoproject.com/en/1.11/ref/settings/</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span>
-<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
-
-
-<span class="c1"># Quick-start development settings - unsuitable for production</span>
-<span class="c1"># See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/</span>
-
-<span class="c1"># SECURITY WARNING: keep the secret key used in production secret!</span>
-<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s1">&#39;66tbu5w&amp;6e=r-d&amp;nw-u7cz!778nc)mhk3&amp;2c^j8gwtlv8x$!9u&#39;</span>
-
-
-<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;.localhost&#39;</span><span class="p">]</span>
-
-<span class="c1"># SECURITY WARNING: don&#39;t run with debug turned on in production!</span>
-<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
-
-
-<span class="c1">## Especificamos el dominio principal donde corre el proyecto</span>
-<span class="n">MAIN_DOMAIN_URL</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
-
-<span class="c1">###########################################################################</span>
-<span class="c1">############# configuracion de django tenant schemas ######################</span>
-<span class="c1">###########################################################################</span>
-
-<span class="n">SHARED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;django_tenants&#39;</span><span class="p">,</span>  <span class="c1"># mandatory, should always be before any django app</span>
-    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
-    <span class="c1"># everything below here is optional</span>
-    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.sites&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
-    <span class="c1"># aplicaciones miscelaneas de todo el proyecto</span>
-    <span class="s1">&#39;miscelaneas&#39;</span><span class="p">,</span>
-    <span class="c1"># app que sirve para utilizar recatpcha</span>
-    <span class="s1">&#39;snowpenguin.django.recaptcha2&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;bootstrap3&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;tenants&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;cuenta&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;solicitudes_tenants&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;menus&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;inicio_dashboard&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;usuarios&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;productos&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;exceptions&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;personas&#39;</span><span class="p">,</span>
-
-<span class="p">)</span>
-
-<span class="n">TENANT_APPS</span> <span class="o">=</span> <span class="p">(</span>    <span class="c1"># The following Django contrib apps must be in TENANT_APPS</span>
-    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
-    <span class="c1"># everything below here is optional</span>
-    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.sites&#39;</span><span class="p">,</span>
-    <span class="c1"># Con esta app hacemos trazabilidad de todas las operaciones de los usuarios - utilizar en Modelos importantes</span>
-    <span class="s1">&#39;simple_history&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;cuenta&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;menus&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;inicio_dashboard&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;usuarios&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;productos&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;personas&#39;</span><span class="p">,</span>
-
-<span class="p">)</span>
-
-<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">SHARED_APPS</span> <span class="o">+</span> <span class="n">TENANT_APPS</span><span class="p">))</span>
-
-
-<span class="c1">## Secret el capcha - amx.soft.co@gmail.com</span>
-<span class="c1">## [OJO] -&gt; tener esta info aqui es mala idea de seguridad. mejorar despues</span>
-<span class="c1">## Leer este articulo https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html</span>
-<span class="c1"># GOOGLE_RECAPTCHA_SECRET_KEY = &#39;6LdPHVcUAAAAANlEMbmbZ3p8jQApII25WYwO7pQj&#39;</span>
-<span class="n">RECAPTCHA_PRIVATE_KEY</span> <span class="o">=</span> <span class="s1">&#39;6LdPHVcUAAAAANlEMbmbZ3p8jQApII25WYwO7pQj&#39;</span>
-<span class="n">RECAPTCHA_PUBLIC_KEY</span> <span class="o">=</span> <span class="s1">&#39;6LdPHVcUAAAAAPSrhUejmkFcHxjfS0plis0iB-34&#39;</span>
-
-
-<span class="c1">## donde busca la definicion de nuestros tenants</span>
-<span class="n">TENANT_MODEL</span> <span class="o">=</span> <span class="s2">&quot;tenants.Tenant&quot;</span>  <span class="c1"># app.Model</span>
-<span class="n">TENANT_DOMAIN_MODEL</span> <span class="o">=</span> <span class="s2">&quot;tenants.Domain&quot;</span>
-
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s1">&#39;/data/media&#39;</span>
-<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">&#39;/media/&#39;</span>
-<span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;django_tenants.storage.TenantFileSystemStorage&#39;</span>
-
-<span class="c1">##### especifico un archivo que maneje las urls ###########################</span>
-<span class="c1">#ROOT_URLCONF = &#39;sigax.tenant_urls&#39;</span>
-<span class="n">ROOT_URLCONF</span> <span class="o">=</span> <span class="s1">&#39;sigax.urls&#39;</span>
-<span class="n">PUBLIC_SCHEMA_URLCONF</span> <span class="o">=</span> <span class="s1">&#39;sigax.public_urls&#39;</span>
-<span class="n">PUBLIC_SCHEMA_NAME</span> <span class="o">=</span> <span class="s1">&#39;public&#39;</span>
-
-
-<span class="c1">## Tenants schemas publicos a nivel global</span>
-<span class="c1"># PG_EXTRA_SEARCH_PATHS = [&#39;extensions&#39;]</span>
-
-<span class="c1"># Logs manager ######################</span>
-
-<span class="c1">#LOGGING = {</span>
-<span class="c1">#    &#39;filters&#39;: {</span>
-<span class="c1">#        &#39;tenant_context&#39;: {</span>
-<span class="c1">#            &#39;()&#39;: &#39;tenant_schemas.log.TenantContextFilter&#39;</span>
-<span class="c1">#        },</span>
-<span class="c1">#    },</span>
-<span class="c1">#    &#39;formatters&#39;: {</span>
-<span class="c1">#        &#39;tenant_context&#39;: {</span>
-<span class="c1">#            &#39;format&#39;: &#39;[%(schema_name)s:%(domain_url)s] &#39;</span>
-<span class="c1">#            &#39;%(levelname)-7s %(asctime)s %(message)s&#39;,</span>
-<span class="c1">#        },</span>
-<span class="c1">#    },</span>
-<span class="c1">#    &#39;handlers&#39;: {</span>
-<span class="c1">#        &#39;console&#39;: {</span>
-<span class="c1">#            &#39;filters&#39;: [&#39;tenant_context&#39;],</span>
-<span class="c1">#        },</span>
-<span class="c1">#    },</span>
-<span class="c1">#}</span>
-
-<span class="c1"># consideraciones de rendimiento</span>
-<span class="n">TENANT_LIMIT_SET_CALLS</span> <span class="o">=</span> <span class="bp">True</span>
-
-<span class="c1">################################################################################</span>
-<span class="c1">###################################### FIN Django tenant schemas ###############</span>
-<span class="c1">################################################################################</span>
-
-
-<span class="c1">## Configuracion de chaches</span>
-
-
-
-<span class="c1">################################################################################</span>
-<span class="c1">################ configuracion general #########################################</span>
-<span class="c1">################################################################################</span>
-
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-<span class="c1"># EMAIL CONFIG AMXSOFTWARE.COM</span>
-<span class="c1"># Usado para reestablecer contrasenia</span>
-<span class="c1">#EMAIL_HOST = &#39;mail.amx-software.com&#39;</span>
-<span class="c1">#EMAIL_HOST_PASSWORD = &#39;amxSOFT123456&#39;</span>
-<span class="c1">#EMAIL_HOST_USER = &#39;noreply@amx-software.com&#39;</span>
-<span class="c1">#EMAIL_PORT      = 25</span>
-<span class="c1">#EMAIL_USE_TLS   = False</span>
-<span class="c1">#DEFAULT_FROM_EMAIL  = &#39;noreply@amx-software.com&#39;</span>
-<span class="c1">#SERVER_EMAIL    = &#39;root@amx-software.com&#39;</span>
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-
-
-<span class="n">SESSION_SERIALIZER</span> <span class="o">=</span> <span class="s1">&#39;django.contrib.sessions.serializers.PickleSerializer&#39;</span>
-
-
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-<span class="c1"># EMAIL CONFIG IN LOCALHOST</span>
-<span class="c1"># Usado para reestablecer contrasenia</span>
-<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="s1">&#39;smtp.gmail.com&#39;</span>
-<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="s1">&#39;amx.soft.co@gmail.com&#39;</span>
-<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;amxSOFT123456&#39;</span>
-<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">587</span>
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-<span class="c1"># EMAIL CONFIG IN SIGAX.CO</span>
-<span class="c1"># Usado para reestablecer contrasenia</span>
-<span class="c1">#EMAIL_USE_TLS = True</span>
-<span class="c1">#EMAIL_HOST = &#39;smtp.sendgrid.net&#39;</span>
-<span class="c1">#EMAIL_HOST_USER = &#39;apikey&#39;</span>
-<span class="c1">#EMAIL_HOST_PASSWORD = &#39;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&#39;</span>
-<span class="c1">#DEFAULT_FROM_EMAIL = &#39;no-reply@sigax.co&#39;</span>
-<span class="c1">#EMAIL_PORT = 587</span>
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-
-<span class="c1">#Handle session is not Json Serializable</span>
-<span class="n">SESSION_SERIALIZER</span> <span class="o">=</span> <span class="s1">&#39;django.contrib.sessions.serializers.PickleSerializer&#39;</span>
-
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-<span class="c1"># ----------------- [session_timeout] ------------------------------------------------</span>
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-
-<span class="n">LOGIN_URL</span> <span class="o">=</span> <span class="s1">&#39;/cuenta/login&#39;</span>
-<span class="n">LOGIN_REDIRECT_URL</span><span class="o">=</span><span class="s1">&#39;/cuenta/login&#39;</span>
-<span class="n">LOGOUT_URL</span> <span class="o">=</span> <span class="s1">&#39;/cuenta/logout&#39;</span>
-<span class="n">ACCESS_DENIED</span> <span class="o">=</span> <span class="s1">&#39;/exceptions/have_not_permissions/&#39;</span>
-
-<span class="c1">## Manejo de permisos</span>
-<span class="kn">from</span> <span class="nn">.LoginPermissionsRequired</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="c1"># ---------------------------------------</span>
-
-<span class="c1"># SESSION EXPIRE CONFIG</span>
-<span class="n">SESSION_EXPIRE_SECONDS</span> <span class="o">=</span> <span class="mi">3600</span>  <span class="c1">#</span>
-<span class="c1"># By default, the session will expire X seconds after the start of the session. To expire the session X seconds after the last activity, use the following setting:</span>
-<span class="n">SESSION_EXPIRE_AFTER_LAST_ACTIVITY</span> <span class="o">=</span> <span class="bp">True</span>
-
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-
-<span class="c1">######################################################################################</span>
-<span class="c1">################ fin configuracion general ###########################################</span>
-<span class="c1">######################################################################################</span>
-
-<span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
-
-    
-    <span class="s1">&#39;django_tenants.middleware.TenantMiddleware&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.middleware.security.SecurityMiddleware&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.sessions.middleware.SessionMiddleware&#39;</span><span class="p">,</span>
-    <span class="c1"># Middleware que gestiona los subdominidos,</span>
-    <span class="s1">&#39;sigax.middleware.SubdomainMiddleware&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.middleware.common.CommonMiddleware&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.middleware.csrf.CsrfViewMiddleware&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.auth.middleware.SessionAuthenticationMiddleware&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.messages.middleware.MessageMiddleware&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;</span><span class="p">,</span>
-    <span class="c1"># session timeout require pip install django-session-timeout</span>
-    <span class="c1"># Esta app se debe instalar desde consola. Sirve para validar el tiempo de session. Se deben configurar los</span>
-    <span class="c1"># parametros con la etiqueta [session_timeout]</span>
-    <span class="c1"># session timeout require pip install django-session-timeout</span>
-    <span class="s1">&#39;django_session_timeout.middleware.SessionTimeoutMiddleware&#39;</span><span class="p">,</span>
-    <span class="c1"># custom middleware para solicitar el inicio de session en todas las vistas</span>
-    <span class="s1">&#39;sigax.middleware.LoginRequiredMiddleware&#39;</span><span class="p">,</span>
-    <span class="c1"># custom middleware para solicitar los permisos sobre las URL</span>
-    <span class="s1">&#39;sigax.middleware.RequirePermissionMiddleware&#39;</span><span class="p">,</span>
-    <span class="c1"># Custom middleware to access currentUser globally</span>
-    <span class="s1">&#39;django_currentuser.middleware.ThreadLocalUserMiddleware&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;BACKEND&#39;</span><span class="p">:</span> <span class="s1">&#39;django.template.backends.django.DjangoTemplates&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;DIRS&#39;</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="s1">&#39;DIRS&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="c1">#os.path.join(BASE_DIR, &#39;templates/bsb/pages&#39;),</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;templates/remark/material/mmenu/html&#39;</span><span class="p">),</span>
-        <span class="p">],</span>
-        <span class="s1">&#39;APP_DIRS&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-        <span class="s1">&#39;OPTIONS&#39;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">&#39;context_processors&#39;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s1">&#39;django.template.context_processors.debug&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;django.template.context_processors.request&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;django.contrib.auth.context_processors.auth&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;django.contrib.messages.context_processors.messages&#39;</span><span class="p">,</span>
-            <span class="p">],</span>
-        <span class="p">},</span>
-    <span class="p">},</span>
-<span class="p">]</span>
-
-
-<span class="n">WSGI_APPLICATION</span> <span class="o">=</span> <span class="s1">&#39;sigax.wsgi.application&#39;</span>
-
-
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-<span class="c1"># Password validation</span>
-<span class="c1"># https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators</span>
-<span class="n">AUTH_PASSWORD_VALIDATORS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;django.contrib.auth.password_validation.UserAttributeSimilarityValidator&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;django.contrib.auth.password_validation.MinimumLengthValidator&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;django.contrib.auth.password_validation.CommonPasswordValidator&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;django.contrib.auth.password_validation.NumericPasswordValidator&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">]</span>
-<span class="c1"># ------------------------------------------------------------------------------------</span>
-
-
-<span class="c1"># Database</span>
-<span class="c1"># https://docs.djangoproject.com/en/1.11/ref/settings/#databases</span>
-
-<span class="c1">#DATABASES = {</span>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#DATABASES = {</span>
 <span class="c1">#    &#39;default&#39;: {</span>
 <span class="c1">#        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,</span>
 <span class="c1">#        &#39;NAME&#39;: os.path.join(BASE_DIR, &#39;db.sqlite3&#39;),</span>
@@ -865,68 +242,37 @@ en grupos.</p>
 
 <span class="c1">### Tenant schemas</span>
 
-<span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="c1">#&#39;ENGINE&#39;: &#39;tenant_schemas.postgresql_backend&#39;,</span>
-        <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django_tenants.postgresql_backend&#39;</span><span class="p">,</span>
-<span class="hll">        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;sigax&#39;</span><span class="p">,</span>
+<span class="hll"><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">#&#39;ENGINE&#39;: &#39;tenant_schemas.postgresql_backend&#39;,</span>
+</span><span class="hll">        <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django_tenants.postgresql_backend&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;sigax&#39;</span><span class="p">,</span>
 </span><span class="hll">        <span class="s1">&#39;USER&#39;</span><span class="p">:</span> <span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
 </span><span class="hll">        <span class="s1">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s1">&#39;prueba123&#39;</span><span class="p">,</span>
 </span><span class="hll">        <span class="s1">&#39;HOST&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
 </span><span class="hll">        <span class="s1">&#39;PORT&#39;</span><span class="p">:</span> <span class="s1">&#39;5432&#39;</span><span class="p">,</span>
-</span>    <span class="p">}</span>
-<span class="p">}</span>
-
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
 <span class="n">DATABASE_ROUTERS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s1">&#39;django_tenants.routers.TenantSyncRouter&#39;</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># Password validation</span>
-<span class="c1"># https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators</span>
-
-<span class="n">AUTH_PASSWORD_VALIDATORS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;django.contrib.auth.password_validation.UserAttributeSimilarityValidator&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;django.contrib.auth.password_validation.MinimumLengthValidator&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;django.contrib.auth.password_validation.CommonPasswordValidator&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;django.contrib.auth.password_validation.NumericPasswordValidator&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">]</span>
-
-
-<span class="c1"># Internationalization</span>
-<span class="c1"># https://docs.djangoproject.com/en/1.9/topics/i18n/</span>
-
-<span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">&#39;es&#39;</span>
-
-<span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">&#39;America/Bogota&#39;</span>
-
-<span class="n">USE_I18N</span> <span class="o">=</span> <span class="bp">True</span>
-
-<span class="n">USE_L10N</span> <span class="o">=</span> <span class="bp">True</span>
-
-<span class="n">USE_TZ</span> <span class="o">=</span> <span class="bp">True</span>
-
-
-<span class="c1"># Static files (CSS, JavaScript, Images)</span>
-<span class="c1"># https://docs.djangoproject.com/en/1.11/howto/static-files/</span>
-
-<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
-<span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;static&quot;</span><span class="p">),</span>
-<span class="p">)</span>
-
-<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;static_collected&#39;</span><span class="p">)</span>
-
-
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">)</span>
-<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">&#39;/media/&#39;</span>
+</pre></div>
+</td></tr></table></div>
+<p>La parte subrayada de este archivo representa la configuración de la base de datos. Eres libre de configurar esta parte de acuerdo a tu conveniencia.</p>
+<p>Cuando hayas validado que tu archivo de configuración es correcto. Por favor ejecuta el siguiente commando en la raiz del proyecto:</p>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     sh install.sh
+</pre></div>
+</td></tr></table></div>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Si tienes algún error al memento de ejecutar el script, debes solucionarlo, borrar la base de datos creada y volverla a crear. Luego de esto se ejecutar el Script nuevamente.</p>
+</div>
+<p>Ahora nuestro proyecto está casi listo, antes de iniciarlo debemos ejecutar las migraciones de las aplicaciones por medio de un bash automatizado.</p>
+<p>Si no tuviste problemas puedes ingresar à la dirección localhost:port donde port es el puerto configurado. Si tu consola se cierra puedes iniciar de nuevo el proyecto con:</p>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     python manage.py runserver localhost:port
 </pre></div>
 </td></tr></table></div>
 </div>

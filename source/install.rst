@@ -92,9 +92,9 @@ Una vez descagadas e instaladas las dependencias deberemos configurar la base de
 
 
 
-=========================
-Configurar Base de Datos
-=========================
+=========================================
+Configurar Base de Datos & Migraciones
+=========================================
 
 
 Se debe crear una base de datos de forma local preferiblemente de nombre sigax. Se debe realizar una copia del local_settings.py.py ubicado en la carpeta sigax/sigax/
@@ -102,23 +102,41 @@ Se debe crear una base de datos de forma local preferiblemente de nombre sigax. 
 
 .. warning::
 
-   Se debe agregar este archivo creado al .gitignore ya representa la configuración usada para el proyecto en tu entorno local.
+   Se debe agregar este archivo creado al .gitignore ya que representa la configuración usada para el proyecto en tu entorno local.
 
 
 .. literalinclude:: ../../sigax/local_settings.py
    :language: python
-   :emphasize-lines: 303-307
    :linenos:
+   :lines: 290 - 315	
+   :emphasize-lines: 10-20
 
 
 La parte subrayada de este archivo representa la configuración de la base de datos. Eres libre de configurar esta parte de acuerdo a tu conveniencia.
 
 
+Cuando hayas validado que tu archivo de configuración es correcto. Por favor ejecuta el siguiente commando en la raiz del proyecto:
 
-=========================
-Migraciones & SuperUser
-=========================
+.. code-block::
+   sh
+   :linenos:
+
+	sh install.sh
 
 
-Ahora nuestro proyecto está casi listo, antes de iniciarlo debemos ejecutar las migraciones de las aplicaciones por medio de un bash automatizado 
+.. warning::
+
+   Si tienes algún error al memento de ejecutar el script, debes solucionarlo, borrar la base de datos creada y volverla a crear. Luego de esto se ejecutar el Script nuevamente.
+
+
+Ahora nuestro proyecto está casi listo, antes de iniciarlo debemos ejecutar las migraciones de las aplicaciones por medio de un bash automatizado.
+
+
+Si no tuviste problemas puedes ingresar à la dirección localhost:port donde port es el puerto configurado. Si tu consola se cierra puedes iniciar de nuevo el proyecto con:
+
+.. code-block::
+   sh
+   :linenos:
+
+	python manage.py runserver localhost:port
 
