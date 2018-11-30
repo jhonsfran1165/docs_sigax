@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Commandos Básicos" href="comands.html" />
+    <link rel="next" title="Login" href="login/login.html" />
     <link rel="prev" title="Introducción" href="intro.html" /> 
 
   
@@ -88,8 +88,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#configurar-base-de-datos-migraciones">Configurar Base de Datos &amp; Migraciones</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="comands.html">Commandos Básicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="login/login.html">Login</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grupos/crear.html">Creación de grupos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comands.html">Commandos Básicos</a></li>
 </ul>
 
             
@@ -209,59 +210,6 @@ en grupos.</p>
 <p class="first admonition-title">Advertencia</p>
 <p class="last">Se debe agregar este archivo creado al .gitignore ya que representa la configuración usada para el proyecto en tu entorno local.</p>
 </div>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#DATABASES = {</span>
-<span class="c1">#    &#39;default&#39;: {</span>
-<span class="c1">#        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,</span>
-<span class="c1">#        &#39;NAME&#39;: os.path.join(BASE_DIR, &#39;db.sqlite3&#39;),</span>
-<span class="c1">#    }</span>
-<span class="c1">#}</span>
-
-<span class="c1">### Tenant schemas</span>
-
-<span class="hll"><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class="hll">    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span class="hll">        <span class="c1">#&#39;ENGINE&#39;: &#39;tenant_schemas.postgresql_backend&#39;,</span>
-</span><span class="hll">        <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django_tenants.postgresql_backend&#39;</span><span class="p">,</span>
-</span><span class="hll">        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;sigax&#39;</span><span class="p">,</span>
-</span><span class="hll">        <span class="s1">&#39;USER&#39;</span><span class="p">:</span> <span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
-</span><span class="hll">        <span class="s1">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s1">&#39;prueba123&#39;</span><span class="p">,</span>
-</span><span class="hll">        <span class="s1">&#39;HOST&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
-</span><span class="hll">        <span class="s1">&#39;PORT&#39;</span><span class="p">:</span> <span class="s1">&#39;5432&#39;</span><span class="p">,</span>
-</span><span class="hll">    <span class="p">}</span>
-</span><span class="hll"><span class="p">}</span>
-</span>
-<span class="n">DATABASE_ROUTERS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;django_tenants.routers.TenantSyncRouter&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="c1"># Password validation</span>
-</pre></div>
-</td></tr></table></div>
 <p>La parte subrayada de este archivo representa la configuración de la base de datos. Eres libre de configurar esta parte de acuerdo a tu conveniencia.</p>
 <p>Cuando hayas validado que tu archivo de configuración es correcto. Por favor ejecuta el siguiente commando en la raiz del proyecto:</p>
 <div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     sh install.sh
@@ -287,7 +235,7 @@ en grupos.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="comands.html" class="btn btn-neutral float-right" title="Commandos Básicos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="login/login.html" class="btn btn-neutral float-right" title="Login" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="intro.html" class="btn btn-neutral" title="Introducción" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -325,7 +273,6 @@ en grupos.</p>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   
