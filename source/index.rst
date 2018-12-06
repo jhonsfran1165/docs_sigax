@@ -7,13 +7,14 @@ Bienvenido a la documentación de SIGAX
 ======================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Tabla de Contenidos
 
    intro
-   install
+   instalacion/install
    login/login
    grupos/crear
+   modules
    comands
 
 Índices y Tablas

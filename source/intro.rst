@@ -6,6 +6,9 @@
 Introducción
 ======================================
 
+.. image:: images/logo_sigax.png
+    :align: center
+
 Bienvenidos a la documentación de **SIGAX**. "*El software* para el crecimiento inmediato y masivo de empresas".
 
 

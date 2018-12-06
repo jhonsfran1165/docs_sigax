@@ -42,7 +42,7 @@ Tipos de instalación
 
 Una vez clonado el proyecto se encontrara con el siguiente árbol de directorios. 
 
-.. image:: images/instalacion/directorios.png
+.. image:: images/directorios.png
 
 
 La carpeta app es donde puedes encontrar todos los archivos fuentes de la aplicación. Las aplicaciones del proyecto así como los archivos estáticos. A continuación se describen los diferentes directorios del proyecto.
@@ -92,7 +92,7 @@ Si usted desea instalar el proyecto con Docker Toolbox debe ejecutar el script c
 .. note::
    Debe ejecutar el anterior comando en la raiz del directorio del proyecto. Debe seguir las indicaciones que el Script ofrece.
 
-.. image:: images/instalacion/inicio_config_env.png
+.. image:: images/inicio_config_env.png
 
 Con este script se configuran varibles de entorno que seran exportadas para realizar la construcción de las imágenes de docker en los diferentes tipos de instalación. El único tipo de instalación que no utiliza Docker es la instalación local con Pipenv.
 
@@ -134,7 +134,7 @@ Configurar Base de Datos & Migraciones
 Cuando se utiliza la configuración de instalación local, se debe crear una base de datos de forma local preferiblemente de nombre sigax. Debe recordar el usuario y la contraseña así cómo tambien el host en el cual corre la base.
 
 
-.. literalinclude:: ../../app/sigax/settings/base.py
+.. literalinclude:: ../../../app/sigax/settings/base.py
    :language: python
    :linenos:
    :lines: 32 - 57	

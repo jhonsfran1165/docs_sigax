@@ -20,11 +20,20 @@ Condiciones previas
 Iniciar Sesión
 =================
 
-El ingredar à la url de inicio de sesión del proyecto **/cuenta/login** se despliega una interfaz como la siguiente:
+Al ingresar a la url de inicio de sesión del proyecto **/cuenta/login** se despliega una interfaz como la siguiente:
 
 .. image:: images/login.png
     :align: center
 
 
 
-El sistema le pedirá el usuario y la contraseña, y además deberá completar el captcha para poder ingresar.
+El sistema le pedirá el usuario y la contraseña, y además deberá completar el captcha para poder ingresar. En los ambientes de desarrollo el captcha está deshabilitado.
+
+El sistema de inicio de Sesión se hereda del sistema de sesión que maneja django por lo que no hay nada extraño en el código. Se utiliza un middleware para validar que la sesión está activa, para validar el tiempo de sesión y para requerir el login.
+
+
+.. literalinclude:: ../../../app/sigax/settings/base.py
+   :language: python
+   :linenos:
+   :lines: 226 - 256	
+   :emphasize-lines: 6,20,22
