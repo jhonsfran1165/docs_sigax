@@ -99,13 +99,13 @@ Notas
    Some more Ruby code.
 
 .. Incluir un archivo completo en la documentación
-.. literalinclude:: ../../manage.py
+.. literalinclude:: ../../app/manage.py
 
 
 
 .. Incluir un archivo completo en la documentación
 .. Y resaltar las lineas de código importantes
-.. literalinclude:: ../../manage.py
+.. literalinclude:: ../../app/manage.py
    :language: python
    :emphasize-lines: 12,15-18
    :linenos:
