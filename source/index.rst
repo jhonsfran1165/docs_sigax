@@ -14,7 +14,7 @@ Bienvenido a la documentación de SIGAX
    instalacion/install
    login/login
    grupos/crear
-   modules
+   permisos/crear
    comands
 
 Índices y Tablas
