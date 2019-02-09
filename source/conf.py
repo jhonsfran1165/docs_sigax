@@ -14,8 +14,8 @@
 #
 # import os
 # import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
+# sys.path.insert(0, os.path.abspath('../../app'))
+# sys.path.insert(0, os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), 'app'))
 
 # -- Project information -----------------------------------------------------
 
@@ -26,7 +26,7 @@ author = 'amxsoft'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '1.0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -40,7 +40,13 @@ release = '0.0.1'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-]
+    'sphinx.ext.doctest',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.autosummary',
+    ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['ntemplates']
@@ -151,7 +157,8 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'SIGAXDOCS', 'SIGAX DOCS Documentation',
-     author, 'SIGAXDOCS', 'One line description of project.',
+     author, 'SIGAXDOCS', 'Software para el crecimiento inmediato y masivo de \
+     empresas',
      'Miscellaneous'),
 ]
 
