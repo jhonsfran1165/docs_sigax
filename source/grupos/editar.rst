@@ -8,17 +8,18 @@ Edición de grupos
 
 El sistema permite la Edición de grupos de usuarios, esto actualizará los grupos de usuarios creados anteriormente.
 
-=================
+====================
 Condiciones previas
-=================
+====================
 
 * Para usuarios que no son root, debe estar logeado con un grupo que tenga ya permisos para entrar en el modulo de grupos.
 * Tener permisos ya establecidos en la base de datos.
 * Tener grupos de usuarios ya establecidos en la base de datos.
 * Ingresar al modulo de listado de grupos **/usuarios/listar_grupos/**
-
 	* La petición GET retorna una pagina con todos los datos de permisos y grupos de usuarios ya establecidos en la base de datos:
-	 Usando las clases dentro de "viwes.py" > "forms.py"
+	
+	Usando las clases dentro de "views.py" > "forms.py"
+
 ::
 
    ListarGroupView > CreateGroup

@@ -13,8 +13,9 @@ Bienvenido a la documentación de SIGAX
    intro
    instalacion/install
    login/login
-   grupos/crear
+   grupos/index
    permisos/crear
+   suscripcion/crear
    comands
 
 Índices y Tablas

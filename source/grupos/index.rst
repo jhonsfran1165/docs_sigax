@@ -3,9 +3,8 @@
 
 .. El sistema permite la creación de grupos de usuarios, esto hará que los usuarios con dichos grupos tengan permisos a distintas funciones o modulos dentro de la aplicación.
 
-Grupos de usuarios (Grupo de permisos para usuarios)
-======================================
-
+Grupo de permisos para usuarios 
+================================
 
 =================
 Creación

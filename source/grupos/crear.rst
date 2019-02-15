@@ -8,17 +8,18 @@ Creación de grupos
 
 El sistema permite la creación de grupos de usuarios, esto permitirá agregar grupos de usuarios con permisos a distintas funciones o modulos dentro de la aplicación.
 
-=================
+====================
 Condiciones previas
-=================
+====================
 
 * Estar logeado como usuario root en el sistema (para la creación del primer grupo).
 * Tener permisos ya establecidos en la base de datos.
 * Para usuarios que no son root, debe estar logeado con un grupo que tenga ya permisos para entrar en el modulo de grupos.
 * Ingresar al modulo de listado de grupos **/usuarios/listar_grupos/**
+	* La petición GET retorna una pagina con todos los datos de permisos ya establecidos en la base de datos: 
+	
+	Usando las clases dentro de "views.py" > "forms.py"
 
-	* La petición GET retorna una pagina con todos los datos de permisos ya establecidos en la base de datos:
-	 Usando las clases dentro de "viwes.py" > "forms.py"
 ::
 
    ListarGroupView > CreateGroup
