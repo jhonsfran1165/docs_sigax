@@ -36,6 +36,10 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
+
+# Configuración del VSC
+.vscode/*
+
 # Editor backup files #
 #######################
 *~
