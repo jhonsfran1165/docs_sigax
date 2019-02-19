@@ -15,6 +15,7 @@ Bienvenido a la documentación de SIGAX
    login/login
    grupos/index
    permisos/crear
+   solicitud_tenant/crear
    suscripcion/crear
    comands
 
