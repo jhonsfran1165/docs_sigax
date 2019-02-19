@@ -15,6 +15,7 @@ Bienvenido a la documentación de SIGAX
    login/login
    grupos/crear
    permisos/crear
+   solicitud_tenant/crear
    comands
 
 Índices y Tablas
