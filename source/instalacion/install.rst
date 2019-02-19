@@ -36,9 +36,9 @@ Si tiene acceso al repositorio de SIGAX sólo debe clonar el repo a su computado
 
 
 
-====================
+=====================
 Tipos de instalación
-====================
+=====================
 
 Una vez clonado el proyecto se encontrara con el siguiente árbol de directorios. 
 
@@ -128,13 +128,13 @@ Una vez instalado los requerimientos anteriores, se procede a ejecutar nuevament
 
 
 Configurar Base de Datos & Migraciones
---------------------------------
+----------------------------------------
 
 
 Cuando se utiliza la configuración de instalación local, se debe crear una base de datos de forma local preferiblemente de nombre sigax. Debe recordar el usuario y la contraseña así cómo tambien el host en el cual corre la base.
 
 
-.. literalinclude:: ../../../app/sigax/settings/base.py
+.. literalinclude:: ../../../sigax/app/sigax/settings/base.py
    :language: python
    :linenos:
    :lines: 32 - 57	

@@ -13,9 +13,10 @@ Bienvenido a la documentación de SIGAX
    intro
    instalacion/install
    login/login
-   grupos/crear
+   grupos/index
    permisos/crear
    solicitud_tenant/crear
+   suscripcion/crear
    comands
 
 Índices y Tablas

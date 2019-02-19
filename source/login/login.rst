@@ -8,9 +8,9 @@ Login
 
 A continuación se explicará cómo funciona el Login del proyecto y cuales son las condiciones previas para que funcione.
 
-=================
+====================
 Condiciones previas
-=================
+====================
 
 * El Usuario debe estar creado en la aplicación
 * El Usuario debe estar activo
@@ -32,7 +32,7 @@ El sistema le pedirá el usuario y la contraseña, y además deberá completar e
 El sistema de inicio de Sesión se hereda del sistema de sesión que maneja django por lo que no hay nada extraño en el código. Se utiliza un middleware para validar que la sesión está activa, para validar el tiempo de sesión y para requerir el login.
 
 
-.. literalinclude:: ../../../app/sigax/settings/base.py
+.. literalinclude:: ../../../sigax/app/sigax/settings/base.py
    :language: python
    :linenos:
    :lines: 226 - 256	

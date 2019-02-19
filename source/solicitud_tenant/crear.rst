@@ -43,5 +43,5 @@ Eliminar Solicitud
 
 Desde el panel donde se listan todas las solicitudes, es posible eliminarlas desde el botón trash.
 
-..warning:: Para que una solicitud sea eliminada sin problemas, esta no debe estar asociada a ningún tenant.
+.. warning:: Para que una solicitud sea eliminada sin problemas, esta no debe estar asociada a ningún tenant.
 

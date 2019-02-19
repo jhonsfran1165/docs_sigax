@@ -8,23 +8,24 @@ Eliminar de grupos
 
 El sistema permite la eliminación de grupos de usuarios, si y solo si, no esta asignado ya a usuarios del sistema, esto eliminará un grupo de usuario creado anteriormente.
 
-=================
+====================
 Condiciones previas
-=================
+====================
 
 * Para usuarios que no son root, debe estar logeado con un grupo que tenga ya permisos para entrar en el modulo de grupos.
 * Tener grupos de usuarios ya establecidos en la base de datos.
 * Ingresar al modulo de listado de grupos **/usuarios/listar_grupos/**
+	* La petición GET retorna una pagina con todos los datos de permisos y grupos de usuarios ya establecidos en la base de datos: 
+	
+	Usando las clases dentro de "views.py" > "forms.py"
 
-	* La petición GET retorna una pagina con todos los datos de permisos y grupos de usuarios ya establecidos en la base de datos:
-	 Usando las clases dentro de "viwes.py" > "forms.py"
 ::
 
    ListarGroupView > CreateGroup
 
-=================
+====================
 Iniciar Eliminación
-=================
+====================
 
 1. Dentro del modulo listar grupos, en el modulo central se encuentra todos los grupos de usuarios creados con controles en la parte derecha de cada grupo, dar click donde está el botón **rojo** con el icono **tarro basura** para emprezar la eliminación del grupo y sus permisos.
 
