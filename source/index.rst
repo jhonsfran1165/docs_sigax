@@ -7,17 +7,18 @@ Bienvenido a la documentación de SIGAX
 ======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Tabla de Contenidos
+    :maxdepth: 2
+    :caption: Tabla de Contenidos
 
-   intro
-   instalacion/install
-   login/login
-   grupos/index
-   permisos/crear
-   solicitud_tenant/crear
-   suscripcion/crear
-   comands
+    intro
+    instalacion/install
+    login/login
+    modulo_menus/index
+    modulo_solicitud_tenant/index
+    modulo_tenants/index
+    modulo_usuarios/index
+    modulo_productos/index
+    comands
 
 Índices y Tablas
 ==================

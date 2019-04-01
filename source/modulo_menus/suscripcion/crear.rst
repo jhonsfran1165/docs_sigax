@@ -6,9 +6,6 @@
 Creación de Suscripciones
 ======================================
 
-El sistema permite la creación de suscripciones, las cuales servirán para ofrecer a los diferentes Tenants un 
-conjunto de menus y funcionalidades limitadas.
-
 =====================
 Condiciones previas
 =====================
