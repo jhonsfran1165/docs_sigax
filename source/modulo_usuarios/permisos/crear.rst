@@ -12,7 +12,7 @@ El sistema no permite la creación de permisos de forma dinámica, es decir, no 
 Condiciones previas
 =====================
 
-* EEstar logeado en el sistema
+* Estar logeado en el sistema
 * Tener un grupo al cual se le hayan asignado permisos
 * Los menus deben tener asignado los mismo grupos de los usuarios
 
@@ -23,7 +23,7 @@ Creación de grupos desde los modelos
 
 Para crear un nuevo permiso sólo es necesario un par de lineas de código y ejecutar nuevamente las migraciones en la aplicación.
 
-.. literalinclude:: ../../../sigax/app/usuarios/models.py
+.. literalinclude:: ../../../../sigax/app/usuarios/models.py
    :language: python
    :linenos:
    :lines: 50 - 56	
@@ -54,7 +54,7 @@ Validación de permisos
 Un punto muy importante en la configuración de permisos de la aplicación es la forma en que estos se validan. Para no utilizar decoradores en las vistas, hemos utilizado un middleware que simplifica la tarea de verificación y lo hace de una forma práctica. Recordemos que los permisos se asignan sobre las url's de cada aplicación, por lo que en el archivos url's de cada app de sigax podemos encontra la siguiente estructura.
 
 
-.. literalinclude:: ../../../sigax/app/usuarios/urls.py
+.. literalinclude:: ../../../../sigax/app/usuarios/urls.py
    :language: python
    :linenos:
    :emphasize-lines: 20 - 35
@@ -72,7 +72,7 @@ Cómo trabaja el middleware
 
 La variable que creamos **RESTRICTED_URLS** es sólo una lista de tuplas que utiliza el middleware permisionrequire de la configuración global de sigax.
 
-.. literalinclude:: ../../../sigax/app/sigax/middleware.py
+.. literalinclude:: ../../../../sigax/app/sigax/middleware.py
    :language: python
    :linenos:
    :lines: 63 - 144	
@@ -82,7 +82,7 @@ Este es el código que valida los permisos de cada aplicación. Como se puede ve
 
 Otro archivo importante para la validación de los permisos es el LoginPermissionsRequired.py de la carpeta de configuración del proyecto. A continuacion se incluye y luego se explica brevemente.
 
-.. literalinclude:: ../../../sigax/app/sigax/LoginPermissionsRequired.py
+.. literalinclude:: ../../../../sigax/app/sigax/LoginPermissionsRequired.py
    :language: python
    :linenos:
 
