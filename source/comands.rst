@@ -98,14 +98,14 @@ Notas
 
    Some more Ruby code.
 
-.. Incluir un archivo completo en la documentación
-.. literalinclude:: 
+.. Incluir un archivo completo en la documentación (Sin los paréntesis)
+.. (literalinclude):: 
 
 
 
-.. Incluir un archivo completo en la documentación
+.. Incluir un archivo completo en la documentación (Sin los paréntesis)
 .. Y resaltar las lineas de código importantes
-.. literalinclude:: 
+.. (literalinclude):: 
    :language: python
    :emphasize-lines: 12,15-18
    :linenos:
