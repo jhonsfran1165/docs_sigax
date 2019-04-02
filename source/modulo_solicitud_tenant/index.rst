@@ -1,4 +1,4 @@
-Creación de Solicitudes de Tenant
+Módulo Solicitudes de Tenant
 ======================================
 
 Las solicitudes de Tenant son entendidas como las solicitudes que tienen los clientes para ser parte de SIGAX. Estas Solicitudes sólo se realizan cuando un cliente tiene una necesidad específica, y ninguna de nuestras suscripciones soluciona sus problemas.
@@ -8,7 +8,6 @@ Condiciones previas
 =====================
 
 * No tiene que estar logeado en el sistema para realizar la solicitud de un Tenant. Sólo debe ingresar a la url y llenar el formualrio: **/solicitud_tenants/crear_solicitud/**
-
 
 ======================================
 Creación de Solicitud
