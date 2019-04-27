@@ -14,7 +14,7 @@ Condiciones previas
 * Tener permisos ya establecidos en la base de datos. ??
 * Ingresar al modulo de listado de menus **/menus/listar_menus/**
 
-.. image:: images/menu_lateral.jpg
+.. image:: images/menu_lateral.png
     :align: center
 
 =================
@@ -39,7 +39,7 @@ donde está el botón verde para emprezar la creación de la suscripción.
 		
 		* **Crear suscripción:** Guarda la nueva suscripción en base de datos.
 
-.. image:: images/modal_crear.jpg
+.. image:: images/modal_crear.png
     :align: center
 
 3. Una vez diligenciado el formulario y al presionar el botón "Crear suscripción", deberá aparecer un cuadro de éxito:

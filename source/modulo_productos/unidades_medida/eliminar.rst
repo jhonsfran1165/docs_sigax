@@ -1,7 +1,7 @@
-Eliminación de Familias
+Eliminación de Unidades de Medida
 ======================================
 
-Para poder eliminar una familia ya creada, es necesario listar las familias y visualizar el registro que se quiere eliminar. La última columna a la derecha contiene las acciones disponibles para ese registro:
+Para poder eliminar una Unidad de Medida ya creada, es necesario listarlas y visualizar el registro que se quiere eliminar. La última columna a la derecha contiene las acciones disponibles para ese registro:
 
 .. image:: images/acciones_registro.PNG
     :align: center

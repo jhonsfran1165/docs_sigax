@@ -1,14 +1,14 @@
-Edición de Familias
+Edición de Unidades de Medida
 ======================================
 
-Para poder editar una familia ya creada, es necesario listar las familias y visualizar el registro que se quiere editar. La última columna a la derecha contiene las acciones disponibles para ese registro:
+Para poder editar una Unidad de Medida ya creada, es necesario listarlas visualizar el registro que se quiere editar. La última columna a la derecha contiene las acciones disponibles para ese registro:
 
 .. image:: images/acciones_registro.PNG
     :align: center
 
 Para editar presionar sobre el ícono "lápiz" y posteriormente se abrirá el siguiente formulario:
 
-.. image:: images/editar_familia_producto.PNG
+.. image:: images/editar_unidad_medida_producto.PNG
     :align: center
 
 Una vez actualizada la información, se presiona sobre el botón "Editar" y posteriormente deberá salir un mensaje en la parte inferior derecha de la pantalla como se muestra a continuación:
